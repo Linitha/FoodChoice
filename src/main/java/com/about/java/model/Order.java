@@ -1,13 +1,17 @@
 package com.about.java.model;
 
 
-public class Order {
-    String[] items;
+import repository.MenuItem;
 
-    public String[] getItems() {
+import java.util.List;
+
+public class Order {
+    List<MenuItem> items;
+
+    public List<MenuItem> getItems() {
         return items;
     }
-    public void setItems(String[] Items) {
+    public void setItems(List<MenuItem> items) {
         this.items = items;
     }
 }
