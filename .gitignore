@@ -4,7 +4,6 @@
 .classpath
 .project
 .settings
-/src/main/webapp/*
 
 # Package Files #
 *.jar
