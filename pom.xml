@@ -113,6 +113,15 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>foodchoice</finalName>
+      <finalName>foodchoice</finalName>
+      <!--<plugins>-->
+          <!--<plugin>-->
+              <!--<groupId>org.apache.maven.plugins</groupId>-->
+              <!--<artifactId>maven-war-plugin</artifactId>-->
+              <!--<configuration>-->
+                  <!--<outputDirectory>/Users/ylalal/Applications/apache-tomcat-7.0.67/webapps</outputDirectory>-->
+              <!--</configuration>-->
+          <!--</plugin>-->
+      <!--</plugins>-->
   </build>
 </project>

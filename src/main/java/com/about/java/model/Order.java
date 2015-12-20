@@ -1,18 +1,17 @@
 package com.about.java.model;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import repository.MenuItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class Order {
     List<MenuItem> items;
-
-    public List<MenuItem> getItems() {
-        return items;
-    }
-    public void setItems(List<MenuItem> items) {
-        this.items = items;
-    }
+    List<String> selectedItems;
 }
 

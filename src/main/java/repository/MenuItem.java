@@ -9,7 +9,6 @@ import lombok.Setter;
 public class MenuItem {
     private String name;
     private double price;
-    private boolean selected;
 
     public MenuItem(String name, double price) {
         this.name = name;
