@@ -46,5 +46,5 @@ public class MenuController {
         mav.addObject("payment", new PaymentModel());
         return mav;
 }
-    
+
 }

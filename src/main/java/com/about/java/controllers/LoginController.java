@@ -25,6 +25,7 @@ public class LoginController {
     public String submit(ModelMap modelMap, @ModelAttribute("loginModel") Customer customer) {
         System.out.println("in submit" + customer);
         String password = customer.getPassword();
+
         if (password != null && password.equals("onlinetutorialspoint")) {
             modelMap.put("userInfo", customer.getFirstName());
             return "foodChoice/restaurant";
