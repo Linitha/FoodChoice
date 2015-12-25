@@ -24,9 +24,11 @@
     <bean id="hibernate4AnnotatedSessionFactory"
                 class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="annotatedClasses">
+            <property name="annotatedClasses">
             <list>
                 <value>com.about.java.entity.Customer</value>
+                <value>com.about.java.entity.Restaurant</value>
+                <value>com.about.java.entity.Menu</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -40,6 +42,10 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <bean id="customerService" class="com.about.java.service.CustomerServiceImpl"></bean>
     <bean id="customerDAO" class="com.about.java.DAO.CustomerDAOImpl"></bean>
+    <bean id="restaurantService" class="com.about.java.service.RestaurantServiceImpl"></bean>
+    <bean id="restaurantDAO" class="com.about.java.DAO.RestaurantDAOImpl"></bean>
+    <bean id="menuService" class="com.about.java.service.MenuServiceImpl"></bean>
+    <bean id="menuDAO" class="com.about.java.DAO.MenuDAOImpl"></bean>
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </bean>

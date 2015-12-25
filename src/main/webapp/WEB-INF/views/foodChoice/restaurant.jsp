@@ -20,10 +20,10 @@
 
 
     <ul>
-        <c:forEach items="${listOfRestaurant}" var="restaurant" >
-            <tr> <td> <c:out value="${restaurant}"/>  </td>
+        <c:forEach items="${listOfRestaurants}" var="restaurant" >
+            <tr> <td> <c:out value="${restaurant.restaurantName}"/>  </td>
                 <td>
-                    <spring:url value="/restaurant/${restaurant}" var="restaurantUrl" />
+                    <spring:url value="/restaurant/${restaurant.restaurantID}" var="restaurantUrl" />
                     <button class="btn btn-info"
                             onclick="location.href='${restaurantUrl}'">Get Menu</button>
                 </td>

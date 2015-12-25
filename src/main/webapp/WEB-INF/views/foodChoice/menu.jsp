@@ -18,7 +18,7 @@
     </head>
     <body>
         <h1>Menu</h1>
-        <form:form method="POST" action="/foodchoice/order" modelAttribute="order">
+        <form:form method="POST" action="/order" modelAttribute="order">
             <table style="width:100%">
                 <tr>
                     <td> <h1>Select</h1></td>
@@ -27,8 +27,8 @@
                 </tr>
                 <c:forEach items="${order.getItems()}" var="item">
                     <tr>
-                        <td> <form:checkbox path ="selectedItems" value="${item.getName()}" /> </td>
-                        <td> <c:out value="${item.getName()}"/>  </td>
+                        <td> <form:checkbox path ="selectedItems" value="${item.getItemName()}" /> </td>
+                        <td> <c:out value="${item.getItemName()}"/>  </td>
                         <td> <c:out value="${item.getPrice()}"/>  </td>
                     </tr>
                 </c:forEach>
