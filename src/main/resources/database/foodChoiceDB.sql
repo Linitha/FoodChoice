@@ -1,3 +1,5 @@
+CREATE SCHEMA foodchoicedb;
+
 USE foodchoicedb;
 
 CREATE TABLE `customer` (
@@ -20,6 +22,37 @@ CREATE TABLE `foodorders` (
   `Item` int(11) NOT NULL,
   `Price` double NOT NULL,
   `Quantity` int(5) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+USE foodchoicedb;
+
+CREATE TABLE `restaurant` (
+  `RestaurantID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ZipCode` bigint(5) NOT NULL,
+  `RestaurantName` varchar(100) NOT NULL,
+  PRIMARY KEY (`RestaurantID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+
+INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (1,94538,'Taste Of India');
+INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (2,94538,'Linitha Kitchen');
+INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (3,94538,'Tadu Ethiopian Kitchen');
+INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (4,94538,'Little Heaven Deli');
+INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (5,94538,'The Flying Falafel');
+INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (6,95134,'Panera');
+
+USE foodchoicedb;
+
+CREATE TABLE `order` (
+  `OrderID` bigint(6) NOT NULL AUTO_INCREMENT,
+  `OrderTotal` double NOT NULL DEFAULT '0',
+  `NumberOfItems` int(3) NOT NULL DEFAULT '0',
+  `RestaurantID` bigint(20) NOT NULL,
+  `CustomerEmailID` varchar(30) NOT NULL,
+  `Staus` int(11) DEFAULT NULL,
+  PRIMARY KEY (`OrderID`),
+  KEY `Foreign KEy` (`RestaurantID`),
+  CONSTRAINT `Foreign KEy` FOREIGN KEY (`RestaurantID`) REFERENCES `restaurant` (`RestaurantID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 USE foodchoicedb;
@@ -50,36 +83,5 @@ INSERT INTO foodchoicedb.menu(ItemId,RestaurantID,ItemName,price) VALUES (12,2,'
 INSERT INTO foodchoicedb.menu(ItemId,RestaurantID,ItemName,price) VALUES (13,2,'FRENCH FRIES',3);
 INSERT INTO foodchoicedb.menu(ItemId,RestaurantID,ItemName,price) VALUES (14,2,'ONION RINGS',5);
 INSERT INTO foodchoicedb.menu(ItemId,RestaurantID,ItemName,price) VALUES (15,2,'GARDEN SALAD',4.95);
-
-USE foodchoicedb;
-
-CREATE TABLE `order` (
-  `OrderID` bigint(6) NOT NULL AUTO_INCREMENT,
-  `OrderTotal` double NOT NULL DEFAULT '0',
-  `NumberOfItems` int(3) NOT NULL DEFAULT '0',
-  `RestaurantID` bigint(20) NOT NULL,
-  `CustomerEmailID` varchar(30) NOT NULL,
-  `Staus` int(11) DEFAULT NULL,
-  PRIMARY KEY (`OrderID`),
-  KEY `Foreign KEy` (`RestaurantID`),
-  CONSTRAINT `Foreign KEy` FOREIGN KEY (`RestaurantID`) REFERENCES `restaurant` (`RestaurantID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-USE foodchoicedb;
-
-CREATE TABLE `restaurant` (
-  `RestaurantID` bigint(20) NOT NULL AUTO_INCREMENT,
-  `ZipCode` bigint(5) NOT NULL,
-  `RestaurantName` varchar(100) NOT NULL,
-  PRIMARY KEY (`RestaurantID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-
-
-INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (1,94538,'Taste Of India');
-INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (2,94538,'Linitha Kitchen');
-INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (3,94538,'Tadu Ethiopian Kitchen');
-INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (4,94538,'Little Heaven Deli');
-INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (5,94538,'The Flying Falafel');
-INSERT INTO foodchoicedb.restaurant(RestaurantID,ZipCode,RestaurantName) VALUES (6,95134,'Panera');
 
 
