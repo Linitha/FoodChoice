@@ -1,8 +1,8 @@
 package com.about.java.service;
 
-/**
- * Created by Linitha on 12/25/2015.
- */
-public class OrderService
+
+public interface OrderService
 {
+public void createOrder(double orderTotal,int numberOfItem,String restaurantID,String customerEmailID,String status);
+
 }

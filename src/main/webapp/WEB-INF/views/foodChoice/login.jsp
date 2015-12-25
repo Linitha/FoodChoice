@@ -9,7 +9,7 @@
 </head>
 <body>
 <h4>User Login.</h4>
-<form:form method="post" name="loginForm">
+<form:form method="GET" name="loginForm"  action="/restaurant">
     <table>
         <tr><td>User Name: </td><td><input name="userName" type="textbox"></td></tr>
         <tr><td>Password: </td><td><input name="password" type="password"></td></tr>
