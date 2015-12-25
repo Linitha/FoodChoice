@@ -26,7 +26,7 @@ public class LoginController {
         System.out.println("in submit" + customer);
         String password = customer.getPassword();
 
-        if (password != null && password.equals("onlinetutorialspoint")) {
+        if (password != null && password.equals("a")) {
             modelMap.put("userInfo", customer.getFirstName());
             return "foodChoice/restaurant";
         } else {

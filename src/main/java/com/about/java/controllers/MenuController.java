@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -41,7 +42,7 @@ public class MenuController {
 
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
-    public ModelAndView submitForm(@ModelAttribute("selectedItems") List<Menu> selectedItems, Model model) {
+    public ModelAndView submitForm(@ModelAttribute("selectedItems") ArrayList<Menu> selectedItems, Model model) {
         ModelAndView mav = new ModelAndView("foodChoice/payment");
         mav.addObject("payment", new PaymentModel());
         return mav;
