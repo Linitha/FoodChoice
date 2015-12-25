@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PaymentController {
-    @RequestMapping(value = "/payment", method = RequestMethod.POST)
+    @RequestMapping(value = "/foodchoice/payment", method = RequestMethod.POST)
     public ModelAndView makePayment(@ModelAttribute PaymentModel paymentModel, Model model) {
         ModelAndView mav = new ModelAndView("foodChoice/Confirmation");
         return mav;

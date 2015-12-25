@@ -18,7 +18,7 @@
     </head>
     <body>
         <h1>Menu</h1>
-        <form:form method="POST" action="/order" modelAttribute="order">
+        <form:form method="POST" action="/foodchoice/order" modelAttribute="order">
             <table style="width:100%">
                 <tr>
                     <td> <h1>Select</h1></td>

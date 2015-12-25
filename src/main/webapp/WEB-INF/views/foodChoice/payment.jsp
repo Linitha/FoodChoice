@@ -18,7 +18,7 @@
     </head>
     <body>
         <h1>Payment Details</h1>
-        <form:form method="POST" action="/payment" modelAttribute="payment">
+        <form:form method="POST" action="/foodchoice/payment" modelAttribute="payment">
             <div>
                 <label>First Name: </label>
                 <form:input path="firstName" type="text" />

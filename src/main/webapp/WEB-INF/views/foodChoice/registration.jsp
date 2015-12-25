@@ -10,7 +10,7 @@
 </head>
 <body>
 <div align="center">
-    <form:form action="register" method="post" commandName="customer">
+    <form:form action="register" method="post" commandName="/foodchoice/customer">
         <table border="0">
             <tr>
                 <td colspan="2" align="center"><h2>Spring MVC Form Demo - Registration</h2></td>
