@@ -6,7 +6,7 @@
 </head>
 <body>
 <h4>Enter the Zipcode </h4>
-<form:form method="post" commandName="ZipCode">
+<form:form method="post" action ="/foodchoice/restaurant" commandName="ZipCode">
     <table>
         <tr><td>Zipcode: </td><td><input name="ZipCode" type="textbox"></td></tr>
         <tr><td colspan="2" align="right"><input type="submit" value="Submit"></td></tr>

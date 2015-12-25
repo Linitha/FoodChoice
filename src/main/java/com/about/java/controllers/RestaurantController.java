@@ -21,7 +21,7 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping(value = "/restaurant")
+
 public class RestaurantController {
 
 
@@ -32,12 +32,12 @@ public class RestaurantController {
     public void setPersonService(RestaurantService rs){
         this.restaurantService = rs;
     }
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/zipcode",method = RequestMethod.GET)
     public String ViewZipcode()
     {
         return("foodChoice/zipcode");
     }
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="/restaurant",method = RequestMethod.POST)
     public ModelAndView addCustomer(@ModelAttribute("ZipCode") String ZipCode, Model model)
     {
         model.addAttribute("listOfRestaurants", this.restaurantService.listRestaurants(ZipCode));
