@@ -5,37 +5,31 @@
 
 <html>
     <head>
-        <style>
-            body {
-                background-color: linen;
-            }
-            h1 {
-                color: maroon;
-                margin-left: 40px;
-            }
-        </style>
-        <title>This is Menu</title>
+        <%@ include file="scriptsAndLinks.jsp" %>
     </head>
     <body>
-        <h1>Menu</h1>
-        <form:form method="POST" action="/foodchoice/order" modelAttribute="order">
-            <table style="width:100%">
-                <tr>
-                    <td> <h1>Select</h1></td>
-                    <td> <h1>Item</h1> </td>
-                    <td> <h1>Price</h1> </td>
-                </tr>
-                <c:forEach items="${order.getItems()}" var="item">
+        <%@ include file="header.jsp" %>
+        <div class="container">
+            <form:form method="POST" action="/foodchoice/order" modelAttribute="order">
+            <h3 class="form-heading">Menu</h3>
+                <table style="width:100%">
                     <tr>
-                        <td> <form:checkbox path ="selectedItems" value="${item.getItemName()}" /> </td>
-                        <td> <c:out value="${item.getItemName()}"/>  </td>
-                        <td> <c:out value="${item.getPrice()}"/>  </td>
+                        <td> <h3>Select</h3></td>
+                        <td> <h3>Item</h3> </td>
+                        <td> <h3>Price</h3> </td>
                     </tr>
-                </c:forEach>
-                <tr>
-                   <td><input type="submit" name="submit" value="Order" /></td>
-                </tr>
-            </table>
-        </form:form>
+                    <c:forEach items="${order.getItems()}" var="item">
+                        <tr>
+                            <td> <form:checkbox path ="selectedItems" value="${item.getItemName()}" /> </td>
+                            <td> <c:out value="${item.getItemName()}"/>  </td>
+                            <td> <c:out value="${item.getPrice()}"/>  </td>
+                        </tr>
+                    </c:forEach>
+                    <tr>
+                       <td><input type="submit" name="submit" value="Order" /></td>
+                    </tr>
+                </table>
+            </form:form>
+        </div>
     </body>
 </html>
