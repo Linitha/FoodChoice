@@ -1,26 +1,30 @@
 package com.about.java.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name= "order")
+@Table(name= "orders")
 public class Order {
-    private String ordeID;
+    private String orderID;
     private double orderTotal;
     private int numberOfItems;
     private String restaurantID;
     private String customerEmailID;
-    private String status;
+    private String orderStatus;
+    private Set<FoodOrders> foodOrders = new HashSet<FoodOrders>(
+            0);
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name= "OrderID")
-    public String getOrdeID() {
-        return ordeID;
+    public String getOrderID() {
+        return orderID;
     }
 
-    public void setOrdeID(String ordeID) {
-        this.ordeID = ordeID;
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
 
     @Column(name = "OrderTotal")
@@ -57,13 +61,22 @@ public class Order {
         this.customerEmailID = customerEmailID;
     }
 
-    @Column(name = "Status")
-    public String getStatus() {
-        return status;
+    @Column(name = "OrderStatus")
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+    public Set<FoodOrders> getFoodOrders() {
+        return this.foodOrders;
+    }
+
+    public void setFoodOrders(Set<FoodOrders> foodOrders) {
+        this.foodOrders = foodOrders;
     }
 
 

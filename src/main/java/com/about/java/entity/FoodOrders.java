@@ -1,25 +1,36 @@
 package com.about.java.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name= "foodorders")
 public class FoodOrders {
 
-    private String orderID ;
+    private String id;
+    private Order order ;
     private String item;
     private double price;
     private int quantity;
 
-    @Column(name="OrderID")
-    public String getOrderID() {
-        return orderID;
+    @Id
+    @GeneratedValue
+    @Column(name = "ID")
+    public String getId() {
+        return id;
     }
 
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "OrderID", nullable = false)
+    public Order getOrder() {
+        return this.order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     @Column(name = "Item")
@@ -28,7 +39,7 @@ public class FoodOrders {
     }
 
     public void setItem(String item) {
-        item = item;
+        this.item = item;
     }
 
     @Column(name ="Price")
