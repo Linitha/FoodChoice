@@ -20,7 +20,7 @@
                     </tr>
                     <c:forEach items="${order.getItems()}" var="item">
                         <tr>
-                            <td> <form:checkbox path ="selectedItems" value="${item.getItemName()}" /> </td>
+                            <td> <form:checkbox path ="selectedItems" value="${item.getItemID()}"  /> </td>
                             <td> <c:out value="${item.getItemName()}"/>  </td>
                             <td> <c:out value="${item.getPrice()}"/>  </td>
                         </tr>

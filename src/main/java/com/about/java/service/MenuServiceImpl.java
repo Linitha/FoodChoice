@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-
+@Service
 public class MenuServiceImpl implements MenuService {
     @Autowired(required=true)
     @Qualifier(value= "menuDAO")

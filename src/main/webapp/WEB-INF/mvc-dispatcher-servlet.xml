@@ -29,6 +29,8 @@
                 <value>com.about.java.entity.Customer</value>
                 <value>com.about.java.entity.Restaurant</value>
                 <value>com.about.java.entity.Menu</value>
+                <value>com.about.java.entity.Order</value>
+                <value>com.about.java.entity.FoodOrders</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -46,6 +48,8 @@
     <bean id="restaurantDAO" class="com.about.java.DAO.RestaurantDAOImpl"></bean>
     <bean id="menuService" class="com.about.java.service.MenuServiceImpl"></bean>
     <bean id="menuDAO" class="com.about.java.DAO.MenuDAOImpl"></bean>
+    <bean id="orderService" class="com.about.java.service.OrderServiceImpl"></bean>
+    <bean id="orderDAO" class="com.about.java.DAO.OrderDAOImpl"></bean>
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </bean>
