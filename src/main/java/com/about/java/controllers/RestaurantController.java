@@ -29,9 +29,10 @@ public class RestaurantController {
 
     @Autowired(required=true)
     @Qualifier(value="restaurantService")
-    public void setPersonService(RestaurantService rs){
+    public void getZipCode(RestaurantService rs){
         this.restaurantService = rs;
     }
+
     @RequestMapping(value="/zipcode",method = RequestMethod.GET)
     public String ViewZipcode()
     {
@@ -39,7 +40,7 @@ public class RestaurantController {
     }
     @RequestMapping(value="/restaurant",method = RequestMethod.POST)
 
-    public ModelAndView addCustomer(@ModelAttribute("ZipCode") String ZipCode, Model model)
+    public ModelAndView postRestaurantList(@ModelAttribute("ZipCode") String ZipCode, Model model)
     {
         model.addAttribute("listOfRestaurants", this.restaurantService.listRestaurants(ZipCode));
         ModelAndView mav = new ModelAndView("foodChoice/restaurant");
@@ -47,4 +48,5 @@ public class RestaurantController {
         return mav;
 
     }
+
 }

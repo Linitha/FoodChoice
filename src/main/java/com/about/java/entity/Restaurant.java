@@ -16,6 +16,10 @@ public class Restaurant implements java.io.Serializable {
     private String restaurantName;
     private String restaurantID;
     private String zipCode;
+
+
+    private String loginUserID;
+    private String loginPassword;
     private Set<Menu> menu = new HashSet<Menu>(
             0);
 
@@ -32,6 +36,14 @@ public class Restaurant implements java.io.Serializable {
     @Column(name = "ZipCode")
     public String getZipCode() {
         return zipCode;
+    }
+    @Column(name = "loginUserid")
+    public String getLoginUserID() {
+        return loginUserID;
+    }
+    @Column(name="loginpassword")
+    public String getLoginPassword() {
+        return loginPassword;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant",  cascade = CascadeType.ALL)
@@ -53,6 +65,14 @@ public class Restaurant implements java.io.Serializable {
 
     public void setMenu(Set<Menu> stockDailyRecords) {
         this.menu = stockDailyRecords;
+    }
+
+    public void setLoginUserID(String loginUserID) {
+        this.loginUserID = loginUserID;
+    }
+
+    public void setLoginPassword(String loginPassword) {
+        this.loginPassword = loginPassword;
     }
 
 
