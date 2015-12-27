@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<!DOCTYPE html>
 <html>
   <head>
     <%@ include file="scriptsAndLinks.jsp" %>
@@ -23,4 +22,3 @@
       <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
     </body>
 </html>
->>>>>>> Stashed changes
