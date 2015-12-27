@@ -1,42 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Registration</title>
-</head>
-<body>
-<div align="center">
-    <form:form action="register" method="post" commandName="/foodchoice/customer">
-        <table border="0">
-            <tr>
-                <td colspan="2" align="center"><h2>Spring MVC Form Demo - Registration</h2></td>
-            </tr>
-            <%--<td> <form:label path="customerId"></td>--%>
-            <tr>
-                <td>First Name:</td>
-                <td><form:input path="firstName" /></td>
-            </tr>
-            <tr>
-                <td>Last Name:</td>
-                <td><form:input path="lastName" /></td>
-            </tr>
-            <tr>
-                <td>E-mail:</td>
-                <td><form:input path="emailID" /></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><form:password path="password" /></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="submit" value="Register" /></td>
-            </tr>
-        </table>
-    </form:form>
-</div>
-</body>
+    <head>
+        <%@ include file="scriptsAndLinks.jsp" %>
+    </head>
+    <body>
+        <%@ include file="header.jsp" %>
+        <div class="container">
+            <form:form action="/foodchoice/register" method="post" modelAttribute="customer" class="small">
+                <h3 class="form-heading">Customer Registration</h3>
+                <label for="firstName" class="sr-only">User Name</label>
+                <input id="firstName" name="firstName" class="form-control" placeholder="First Name" required autofocus>
+                <label for="lastName" class="sr-only">User Name</label>
+                <input id="lastName" name="lastName" class="form-control" placeholder="Last Name" required>
+                <label for="emailID" class="sr-only">User Name</label>
+                <input id="emailID" name="emailID" class="form-control" placeholder="E-mail" required type="email">
+                <label for="password" class="sr-only">User Name</label>
+                <input id="password" name="password" class="form-control" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+            </form:form>
+        </div>
+    </body>
 </html>
