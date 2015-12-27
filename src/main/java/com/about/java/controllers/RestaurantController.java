@@ -38,8 +38,8 @@ public class RestaurantController {
     {
         return("foodChoice/zipcode");
     }
+    
     @RequestMapping(value="/restaurant",method = RequestMethod.POST)
-
     public ModelAndView postRestaurantList(@ModelAttribute("ZipCode") String ZipCode, Model model)
     {
         model.addAttribute("listOfRestaurants", this.restaurantService.listRestaurants(ZipCode));
