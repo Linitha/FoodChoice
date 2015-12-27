@@ -9,7 +9,7 @@
     </head>
     <body>
         <%@ include file="header.jsp" %>
-        <form:form method="POST" action="/foodchoice/payment" modelAttribute="payment">
+        <form:form method="POST" action="/foodchoice/payment" modelAttribute="payment" class="small">
             <h3 class="form-heading">Payment Details</h3>
             <label for="userName" class="sr-only">First Name</label>
             <form:input path="firstName" type="text" id="firstName" class="form-control" placeholder="First Name"/>
