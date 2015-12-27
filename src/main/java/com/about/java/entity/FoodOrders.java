@@ -13,7 +13,7 @@ public class FoodOrders {
     private int quantity;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "ID")
     public String getId() {
         return id;

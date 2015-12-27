@@ -45,18 +45,28 @@ public class MenuController {
         List<Menu> menuItems = menuService.listMenuItems(restaurantID);
         Order order = new Order();
         order.setItems(menuItems);
+        request.getSession().setAttribute("menuItems",menuItems);
         mav.addObject("order", order);
         return mav;
     }
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
-    public ModelAndView submitForm(@ModelAttribute("selectedItems") ArrayList<Menu> selectedItems, Model model, HttpServletRequest request) {
+    public ModelAndView submitForm(@RequestParam("selectedItems") ArrayList<String> selectedItems, HttpServletRequest request) {
         String restaurantID = (String)request.getSession().getAttribute("restaurantID");
-        for(Menu menu: selectedItems )
+        ArrayList<Menu> allMenuItems= (ArrayList<Menu>) request.getSession().getAttribute("menuItems");
+        ArrayList<Menu> selectedMenuItems= new ArrayList<Menu>();
+//
+        for(Menu menu: allMenuItems )
         {
-            System.out.println(menu.getItemName());
+            for(String id : selectedItems)
+            {
+                if(menu.getItemID().equals(id))
+                {
+                    selectedMenuItems.add(menu);
+                }
+            }
         }
-        orderService.createOrder(selectedItems,restaurantID);
+        orderService.createOrder(selectedMenuItems,restaurantID);
         System.out.println(restaurantID);
         ModelAndView mav = new ModelAndView("foodChoice/payment");
         mav.addObject("payment", new PaymentModel());

@@ -32,7 +32,8 @@ public class OrderServiceImpl implements OrderService{
         order.setCustomerEmailID("linithareddy@gmail.com");
         order.setOrderStatus("Ordered");
         order.setRestaurantID(RestaurantID);
-        order.setFoodOrders(setFoodOrders(selectedItems));
+        order.setFoodOrders(setFoodOrders(order,selectedItems));
+
         orderDAO.addOrder(order);
     }
     private int calculateNoOfItems(ArrayList<Menu> selectedItems){
@@ -55,7 +56,7 @@ public class OrderServiceImpl implements OrderService{
     return total;
     }
 
-    private Set<FoodOrders> setFoodOrders(ArrayList<Menu> selectedItems)
+    private Set<FoodOrders> setFoodOrders(Order order,ArrayList<Menu> selectedItems)
     {
         Set<FoodOrders> foodOrdersSet = new HashSet<FoodOrders>();
         for(Menu menuItem: selectedItems)
@@ -63,6 +64,7 @@ public class OrderServiceImpl implements OrderService{
             FoodOrders foodOrders = new FoodOrders();
             foodOrders.setItem(menuItem.getItemName());
             foodOrders.setPrice(menuItem.getPrice());
+            foodOrders.setOrder(order);
             foodOrdersSet.add(foodOrders);
         }
         return foodOrdersSet;

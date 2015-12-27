@@ -1,5 +1,6 @@
 package com.about.java.DAO;
 
+import com.about.java.entity.FoodOrders;
 import com.about.java.entity.Order;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -20,6 +21,10 @@ public class OrderDAOImpl implements OrderDAO {
     public void addOrder(Order o) {
         Session session = this.sessionFactory.getCurrentSession();
         session.save(o);
+        for(FoodOrders foodorder : o.getFoodOrders())
+        {
+            session.save(foodorder);
+        }
     }
 
     public void updateOrder(Order o) {
