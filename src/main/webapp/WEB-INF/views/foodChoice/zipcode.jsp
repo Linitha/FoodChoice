@@ -7,7 +7,7 @@
     <body>
         <%@ include file="header.jsp" %>
         <div class="container">
-            <form:form method="post" action ="/foodchoice/restaurant" commandName="ZipCode">
+            <form:form method="post" action ="/foodchoice/restaurant" commandName="ZipCode" class="small">
                 <h3 class="form-heading">Enter Zip Code</h3>
                 <label for="ZipCode" class="sr-only">User Name</label>
                 <input id="ZipCode" name="ZipCode" class="form-control" placeholder="Zip Code" required autofocus>

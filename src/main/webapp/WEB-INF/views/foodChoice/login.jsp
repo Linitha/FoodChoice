@@ -7,7 +7,7 @@
     <body>
       <%@ include file="header.jsp" %>
       <div class="container">
-        <form:form method="GET" name="loginForm"  action="/foodchoice/zipcode">
+        <form:form method="GET" name="loginForm"  action="/foodchoice/zipcode" class="small">
             <h3 class="form-heading">Please sign in</h3>
             <label for="userName" class="sr-only">User Name</label>
             <input id="userName" class="form-control" placeholder="User Name" required autofocus>

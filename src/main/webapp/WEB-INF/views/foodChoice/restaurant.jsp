@@ -7,9 +7,9 @@
     </head>
     <body>
         <%@ include file="header.jsp" %>
-        <h3>List of Restaurants</h3>
-        <table style="width:100%">
-            <ul>
+        <div class="form large">
+            <h3 class="form-heading">List of Restaurants</h3>
+            <table>
                 <c:forEach items="${listOfRestaurants}" var="restaurant">
                     <tr>
                         <td>
@@ -21,12 +21,12 @@
                         </td>
                     </tr>
                 </c:forEach>
-            </ul>
-        </table>
-        <!--<form:form method="POST" action="/foodchoice/order" modelAttribute="listOfRestaurants">
-            <h3 class="form-heading">Select a Restaurant</h3>
-            <form:select id="restaurantName" name="restaurantName" items="${listOfRestaurants}">
-            </form:select>
-        </form:form>-->
+            </table>
+            <!--<form:form method="POST" action="/foodchoice/order" modelAttribute="listOfRestaurants">
+                <h3 class="form-heading">Select a Restaurant</h3>
+                <form:select id="restaurantName" name="restaurantName" items="${listOfRestaurants}">
+                </form:select>
+            </form:form>-->
+        </div>
     </body>
 </html>

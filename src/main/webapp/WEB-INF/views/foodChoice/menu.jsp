@@ -10,23 +10,23 @@
     <body>
         <%@ include file="header.jsp" %>
         <div class="container">
-            <form:form method="POST" action="/foodchoice/order" modelAttribute="order">
+            <form:form method="POST" action="/foodchoice/order" modelAttribute="order" class="large">
             <h3 class="form-heading">Menu</h3>
-                <table style="width:100%">
+                <table>
                     <tr>
-                        <td> <h3>Select</h3></td>
-                        <td> <h3>Item</h3> </td>
-                        <td> <h3>Price</h3> </td>
+                        <th>Select</th>
+                        <th>Item</th>
+                        <th>Price</th>
                     </tr>
                     <c:forEach items="${order.getItems()}" var="item">
                         <tr>
-                            <td> <form:checkbox path ="selectedItems" value="${item.getItemID()}"  /> </td>
+                            <td> <form:checkbox path ="selectedItems" value="${item.getItemID()}" /> </td>
                             <td> <c:out value="${item.getItemName()}"/>  </td>
                             <td> <c:out value="${item.getPrice()}"/>  </td>
                         </tr>
                     </c:forEach>
                     <tr>
-                       <td><input type="submit" name="submit" value="Order" /></td>
+                        <td><button class="btn btn-lg btn-primary btn-block" type="submit">Order</button></td>
                     </tr>
                 </table>
             </form:form>
