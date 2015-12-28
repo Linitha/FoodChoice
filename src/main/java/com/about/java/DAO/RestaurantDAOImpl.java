@@ -35,6 +35,17 @@ public class RestaurantDAOImpl implements RestaurantDAO {
         return r;
     }
 
+    public Restaurant getRestaurantByLoginUserID(String loginUserID) {
+        String hql = "FROM Restaurant R WHERE R.loginUserID = :loginUserID";
+
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery(hql);
+        query.setParameter("loginUserID",loginUserID);
+        Restaurant r = (Restaurant) query.list().get(0);
+        return r;
+    }
+
+
     public void removeRestaurant(String restaurantName) {
         Session session = this.sessionFactory.getCurrentSession();
         Restaurant r = (Restaurant) session.load(Restaurant.class, new Integer(restaurantName));

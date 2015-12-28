@@ -12,6 +12,7 @@ public interface RestaurantDAO {
     public void addRestaurant(Restaurant c);
     public void updateRestaurant(Restaurant c);
     public Restaurant getRestaurantByName(String restaurantName );
+    public Restaurant getRestaurantByLoginUserID(String loginUserID);
     public void removeRestaurant(String restaurantName);
     public List<Restaurant> listRestaurants(String Zipcode);
 }

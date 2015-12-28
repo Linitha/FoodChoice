@@ -9,15 +9,13 @@
 <body>
 <%@ include file="header.jsp" %>
 <div class="container">
-    <form:form method="GET" name="loginForm" action="/foodchoice/zipcode">
+    <form:form id="RestaurantLogInForm" method="POST"  action="/foodchoice/restaurant/login" modelAttribute="restaurant">
         <h3 class="form-heading">Please sign in</h3>
-        <label for="userName" class="sr-only">User Name</label>
-        <input id="userName" class="form-control" placeholder="User Name" required autofocus>
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Password" required>
+        <label for="loginUserID" class="sr-only">User Name</label>
+        <form:input id="loginUserID" name="loginUserID"  path="loginUserID" type="textbox" placeholder="User Name"  />
+        <form:input id="loginPassword" name="loginPassword" path="loginPassword" type="password"  placeholder="Password" /><br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <div style="color:red">${error}</div>
-    </form:form>
+        </form:form>>
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.1.11.3.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>

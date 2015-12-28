@@ -29,7 +29,7 @@ public class RestaurantController {
 
     @Autowired(required=true)
     @Qualifier(value="restaurantService")
-    public void getZipCode(RestaurantService rs){
+    public void setRestaurantService(RestaurantService rs){
         this.restaurantService = rs;
     }
 
@@ -38,7 +38,11 @@ public class RestaurantController {
     {
         return("foodChoice/zipcode");
     }
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     @RequestMapping(value="/restaurant",method = RequestMethod.POST)
     public ModelAndView postRestaurantList(@ModelAttribute("ZipCode") String ZipCode, Model model)
     {
@@ -48,5 +52,6 @@ public class RestaurantController {
         return mav;
 
     }
+
 
 }
