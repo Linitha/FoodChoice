@@ -38,11 +38,7 @@ public class RestaurantController {
     {
         return("foodChoice/zipcode");
     }
-<<<<<<< Updated upstream
     
-=======
-
->>>>>>> Stashed changes
     @RequestMapping(value="/restaurant",method = RequestMethod.POST)
     public ModelAndView postRestaurantList(@ModelAttribute("ZipCode") String ZipCode, Model model)
     {
