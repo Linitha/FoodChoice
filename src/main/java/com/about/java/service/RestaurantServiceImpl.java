@@ -33,6 +33,11 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Transactional
+    public Restaurant getRestaurantByUser(String loginUserID) {
+        return this.restaurantDAO.getRestaurantByLoginUserID(loginUserID);
+    }
+
+    @Transactional
         public List<Restaurant> listRestaurants(String ZipCode) {
             return this.restaurantDAO.listRestaurants(ZipCode);
         }

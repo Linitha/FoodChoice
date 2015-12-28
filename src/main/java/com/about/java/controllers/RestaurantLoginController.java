@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/restaurant/login")
 public class RestaurantLoginController {
@@ -21,8 +23,8 @@ public class RestaurantLoginController {
 
     @Autowired(required=true)
     @Qualifier(value="restaurantService")
-    public void setRestaurantService(RestaurantService rs){
-        this.restaurantService = rs;
+    public void setRestaurantService(RestaurantService restaurantService){
+        this.restaurantService = restaurantService;
     }
 
         @RequestMapping(method = RequestMethod.GET)
@@ -32,11 +34,13 @@ public class RestaurantLoginController {
             return "foodChoice/restaurantLogin";
         }
     @RequestMapping(method = RequestMethod.POST)
-    public String submit(ModelMap modelMap, @ModelAttribute("restaurant") Restaurant restaurant) {
-        System.out.println(restaurant.getLoginUserID());
-        System.out.println(restaurant.getLoginPassword());
+    public String submit(ModelMap modelMap, @ModelAttribute("restaurant") Restaurant restaurant,HttpServletRequest request) {
+        String userID = restaurant.getLoginUserID();
         String password = restaurant.getLoginPassword();
-        if (password != null && password.equals("rest")) {
+
+        String restaurantPassword = restaurantService.getRestaurantByUser(userID).getLoginPassword();
+        if (password != null && restaurantPassword !=null&& password.equals(restaurantPassword)) {
+            request.getSession().setAttribute("loggedInRestaurant",restaurantService.getRestaurantByUser(userID) );
             modelMap.put("restaurantInfo", restaurant.getRestaurantName());
             return "foodChoice/restaurant";
         } else {
