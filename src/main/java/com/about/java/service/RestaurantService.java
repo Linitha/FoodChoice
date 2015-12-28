@@ -8,6 +8,7 @@ public interface RestaurantService {
     public void addRestaurant(Restaurant restaurant);
     public void updateRestaurant(Restaurant restaurant);
     public Restaurant getRestaurantByZip(String zipCode);
+    public Restaurant getRestaurantByUser(String loginUserID);
     public List<Restaurant> listRestaurants(String ZipCode);
     public void removeRestaurantByName(String emailId);
 }
