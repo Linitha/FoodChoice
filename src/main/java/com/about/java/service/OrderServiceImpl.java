@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -36,6 +37,11 @@ public class OrderServiceImpl implements OrderService{
 
         orderDAO.addOrder(order);
     }
+    @Transactional
+    public List<Order> getOrders(String restaurantId) {
+        return orderDAO.listOrdersByRestaurantID(restaurantId);
+    }
+
     private int calculateNoOfItems(ArrayList<Menu> selectedItems){
         int noOfItems = 0;
         if(selectedItems !=null)
