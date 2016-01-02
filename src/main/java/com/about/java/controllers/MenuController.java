@@ -36,8 +36,8 @@ public class MenuController {
     public void setMenuService(OrderService os){
         this.orderService = os;
     }
-    @RequestMapping(value = "/restaurant/{restaurantID}", method = RequestMethod.GET)
 
+    @RequestMapping(value = "/restaurant/{restaurantID}", method = RequestMethod.GET)
     public ModelAndView showMenu(@PathVariable("restaurantID") String restaurantID,Model model,HttpServletRequest request) {
         request.getSession().setAttribute("restaurantID", restaurantID);
         model.addAttribute("restaurantId", restaurantID);
