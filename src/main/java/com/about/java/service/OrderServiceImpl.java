@@ -37,6 +37,13 @@ public class OrderServiceImpl implements OrderService{
 
         orderDAO.addOrder(order);
     }
+
+    @Transactional
+    public void updateOrder(String OrderID) {
+
+        orderDAO.updateOrder(OrderID);
+    }
+
     @Transactional
     public List<Order> getOrders(String restaurantId) {
         return orderDAO.listOrdersByRestaurantID(restaurantId);

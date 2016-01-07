@@ -7,7 +7,7 @@
     <body>
         <%@ include file="header.jsp" %>
         <div class="container">
-            <form:form id="RestaurantLogInForm" method="POST" action="/foodchoice/restaurant/login" modelAttribute="restaurant" class="small">
+            <form:form id="RestaurantLogInForm" method="POST" action="/foodchoice/restaurant/viewOrders" modelAttribute="restaurant" class="small">
                 <h3 class="form-heading">Please sign in</h3>
                 <label for="loginUserID" class="sr-only">User Name</label>
                 <form:input id="loginUserID" path="loginUserID" placeholder="User Name" class="form-control" />

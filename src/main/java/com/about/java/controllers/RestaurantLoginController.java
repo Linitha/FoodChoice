@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/restaurant/login")
 public class RestaurantLoginController {
     private RestaurantService restaurantService;
     private OrderService orderService;
@@ -35,20 +34,20 @@ public class RestaurantLoginController {
         this.orderService = os;
     }
 
-        @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/restaurant/login",method = RequestMethod.GET)
         public String displayLogin(ModelMap model) {
             Restaurant restaurant = new Restaurant();
             model.addAttribute("restaurant", restaurant);
             return "foodChoice/restaurantLogin";
         }
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="/restaurant/viewOrders",method = RequestMethod.POST)
     public String submit(Model model, @ModelAttribute("restaurant") Restaurant restaurant,HttpServletRequest request) {
         String userID = restaurant.getLoginUserID();
         String password = restaurant.getLoginPassword();
-
         String restaurantPassword = restaurantService.getRestaurantByUser(userID).getLoginPassword();
         if (password != null && restaurantPassword !=null&& password.equals(restaurantPassword)) {
             Restaurant loggedInRestaurant=restaurantService.getRestaurantByUser(userID);
+            request.getSession().setAttribute("loggedInRestaurant", loggedInRestaurant);
             model.addAttribute("listOfOrders", orderService.getOrders(loggedInRestaurant.getRestaurantID()));
             return "foodChoice/vieworders";
         } else {
@@ -56,4 +55,12 @@ public class RestaurantLoginController {
             return "foodChoice/restaurantLogin";
         }
     }
+
+    @RequestMapping(value="/restaurant/viewOrders",method =RequestMethod.GET)
+    public String viewOrders(Model model, HttpServletRequest request) {
+        Restaurant loggedInRestaurant =(Restaurant) request.getSession().getAttribute("loggedInRestaurant");
+        model.addAttribute("listOfOrders", orderService.getOrders(loggedInRestaurant.getRestaurantID()));
+        return "foodChoice/vieworders";
+    }
+
 }

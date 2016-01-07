@@ -10,7 +10,7 @@ public class FoodOrders {
     private Order order ;
     private String item;
     private double price;
-    private int quantity;
+    private int quantity = 1;
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

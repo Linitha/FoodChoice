@@ -55,7 +55,6 @@ public class MenuController {
         String restaurantID = (String)request.getSession().getAttribute("restaurantID");
         ArrayList<Menu> allMenuItems= (ArrayList<Menu>) request.getSession().getAttribute("menuItems");
         ArrayList<Menu> selectedMenuItems= new ArrayList<Menu>();
-//
         for(Menu menu: allMenuItems )
         {
             for(String id : selectedItems)

@@ -27,9 +27,13 @@ public class OrderDAOImpl implements OrderDAO {
         }
     }
 
-    public void updateOrder(Order o) {
+    public void updateOrder(String orderID) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Order order= (Order) session.get(Order.class,orderID);
+        order.setOrderStatus("Delivered");
 
     }
+
 
     public Order getOrderByID(String OrderID) {
         return null;
